@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Base64.sol";
@@ -10,7 +10,7 @@ contract OnChainNFT is ERC721 {
 
     uint256 private _tokenIdCounter;
 
-    constructor() ERC721("OnChainNFT", "OCNFT") {}
+    constructor() ERC721("MayLordNFT", "MLNFT") {}
 
     function mint() public {
         _tokenIdCounter++;
@@ -20,7 +20,7 @@ contract OnChainNFT is ERC721 {
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
         require(_exists(tokenId), "Token does not exist");
 
-        string memory name = string(abi.encodePacked("OnChainNFT #", tokenId.toString()));
+        string memory name = string(abi.encodePacked("MayLordNFT #", tokenId.toString()));
         string memory description = "This is an on-chain NFT with metadata stored entirely on the blockchain.";
         string memory image = generateBase64Image();
 
